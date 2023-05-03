@@ -8,7 +8,7 @@ const expressSession = require('express-session');
 
 const app = express();
 const port = process.env.PORT || 3000;
-const dbUrl = 'mongodb+srv://balmate8:eh9PniCeZfsTxoZC@prfmongo.aefeq5l.mongodb.net/test';
+const dbUrl = '';
 
 mongoose.connect(dbUrl);
 
