@@ -7,10 +7,14 @@
         <label>Username</label>
         <input type="text" id="username" [(ngModel)]="username" placeholder="test123">
     </div>
+    <div class="emailDiv">
+        <label>Email</label>
+        <input type="text" id="email" [(ngModel)]="email" placeholder="test123@test.com">
+    </div>
     <div class="passwordDiv">
         <label>Password</label>
         <input type="password" id="password" [(ngModel)]="password" placeholder="******">
     </div>
-    <button class="loginButton" (click)="login()">LOGIN</button>
+    <button class="loginButton" (click)="register()">REGISTER</button>
 </div>
 <router-outlet></router-outlet>

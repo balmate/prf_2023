@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="card highlight-card card-small">
+    <h3 class="title">{{ title }}</h3>
+</div>
+
+<div class="content">
+    <div *ngIf="product; else elseBlock" class="productContent">
+        <div *ngIf="admin; else adminElse">
+            <div class="content" style="margin-top:20px">
+                <img src="{{product.picture}}" alt="giftCard" style="width:100%">
+                <input value={{product.name}} [(ngModel)] = "productName">
+                <p>HUF<input class="price" value="{{product.price}}" [(ngModel)]="productPrice"></p>
+                <input value={{product.description}} style="width: 300px" [(ngModel)]="productDescription">
+                <p><button class="cartButton" (click)="save(product.id)" style="margin-top: 10px;">Save</button></p>
+                <p><button class="cartButton" (click)="delete(product.id)" style="margin-top: 10px;">Delete product</button></p>
+            </div>
+        </div>
+        <ng-template #adminElse>
+            <img src="{{product.picture}}" alt="giftCard" style="width:100%">
+            <p>{{product.name}}</p>
+            <p>HUF{{product.price}}</p>
+            <p>{{product.description}}</p>
+        </ng-template>
+    </div>
+    <ng-template #elseBlock class="productContent">
+        <h1>No product found with this id!</h1>
+    </ng-template>
+</div>

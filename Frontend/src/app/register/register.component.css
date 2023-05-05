@@ -9,12 +9,16 @@
 }
 
 .usernameDiv {
-    margin-top: 60px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.emailDiv {
+    margin-top: 20px;
+    margin-bottom: 20px
 }
 
 .passwordDiv {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 .loginButton {

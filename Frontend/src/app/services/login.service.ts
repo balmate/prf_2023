@@ -16,4 +16,8 @@ export class LoginService {
   logout() {
     return this.httpClient.post(environment.server + '/logout', {withCredentials: true, responseType: 'text'});
   }
+
+  register(username: string, email: string, password: string) {
+    return this.httpClient.post(environment.server + '/register', {username: username, email:email, password: password}, {responseType: 'text'});
+  }
 }

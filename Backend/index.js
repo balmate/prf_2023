@@ -8,7 +8,7 @@ const expressSession = require('express-session');
 
 const app = express();
 const port = process.env.PORT || 3000;
-const dbUrl = '';
+const dbUrl = 'mongodb+srv://balmate8:eh9PniCeZfsTxoZC@prfmongo.aefeq5l.mongodb.net/test';
 
 mongoose.connect(dbUrl);
 
@@ -18,6 +18,7 @@ mongoose.connection.on('connected', () => {
 
 require('./models/example.model');
 require('./models/user.model');
+require('./models/product.model');
 
 const userModel = mongoose.model('user');
 
@@ -28,15 +29,9 @@ mongoose.connection.on('error', (err) => {
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({}));
 
-const whiteList = ['http://localhost:4200']
+const whiteList = ['http://localhost:4200',]
 
-app.use(cors({origin: function(origin, callback) {
-    if (whiteList.indexOf(origin) >= 0) {
-        callback(null, true);
-    } else {
-        callback(new Error('CORS Error'));
-    }
-}, credentials: true, methods: "GET,PUT,POST,DELETE,OPTIONS"}));
+app.use(cors({origin:whiteList[0], credentials: true, methods: "GET,PUT,POST,DELETE,OPTIONS"}));
 
 passport.use('local', new localStrategy(async function(username, password, done) {
     const user = await userModel.findOne({username: username});

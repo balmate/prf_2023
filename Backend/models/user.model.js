@@ -9,9 +9,10 @@ var userSchema = new mongoose.Schema({
 }, {collection: 'users'});
 
 userSchema.pre('save', function(next) {
-    const user = this;
+    var user = this;
+    if(user.username.includes('admin')) user.accessLevel = 'admin';
+    else  user.accessLevel = 'basic';
     if (user.isModified('password')) {
-        user.accessLevel = 'basic';
         bcrypt.genSalt(10, function(err, salt) {
             if (err) {
                 console.log('Hiba a salt generalasa soran')

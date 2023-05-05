@@ -1,0 +1,23 @@
+<div class="navbar">
+    <div *ngIf="username === ''; else elseBlock">
+      <a [routerLink]="['/login']">Login</a>
+    </div>
+    <ng-template #elseBlock>
+      <a [routerLink]="['/products']">Products</a>
+    </ng-template>
+    <div *ngIf="username === ''">
+      <a [routerLink]="['/register']">Register</a>
+    </div>
+    <div *ngIf="accessLevel == 'admin'">
+      <a [routerLink]="['/admin']">Admin page </a>
+    </div>
+    <div *ngIf="accessLevel == 'admin'">
+      <a [routerLink]="['/addProduct']">Add product </a>
+    </div>
+    <div *ngIf="username !== ''">
+      <a (click)="logout()">Logout</a>
+    </div>
+    <div *ngIf="username !== ''" style="float:right; margin-top:10px">
+      <p>Hello, {{username}}!</p>
+    </div>
+  </div>

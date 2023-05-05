@@ -1,0 +1,28 @@
+.users {
+    margin-top: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    color: black;
+  }
+  
+  .users td, .users th {
+    border: 2px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .users tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .users tr:hover {background-color: white;}
+  
+  .users th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: black;
+    text-align: center;
+  }
